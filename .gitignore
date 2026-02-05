@@ -1,0 +1,23 @@
+# 🔥 Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+env/
+
+# 🔥 Jupyter
+.ipynb_checkpoints/
+
+# 🔥 ML models (optional – remove if you WANT them tracked)
+*.pkl
+
+# 🔥 OS / Editor
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 🔥 CSV backups
+*.tmp
