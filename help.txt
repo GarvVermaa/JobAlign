@@ -1,0 +1,6 @@
+Process to commit in git ->
+cd JobAlign
+git status
+git add .
+git commit -m "meaningful message"
+git push
