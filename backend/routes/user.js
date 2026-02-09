@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const User = require("../models/User.js");
+import User from '../models/User.js'
 
 router.post("/register", async (req, res) => {
   try {
@@ -21,7 +21,7 @@ router.post("/register", async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "Server Error! " });
   }
-
 });
 
+export default router;
 

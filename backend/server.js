@@ -1,6 +1,6 @@
-const express=require('express');
-const cors= require('cors');
-const connectDB=require('./config/db');
+import express from 'express';
+import cors from 'cors';
+import connectDB from './config/db.js';
 import analysisRouter from './routes/analysis.js'
 import userRouter from './routes/user.js'
 

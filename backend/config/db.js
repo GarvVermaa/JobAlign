@@ -1,10 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:270717/jobalign", {
-      useNewURLParses: true,
-      useUnfiedTopology: true,
+    await mongoose.connect("mongodb://localhost:27017/jobalign", {
     });
     console.log("MongoDB connected");
   } catch (error) {
@@ -13,4 +11,4 @@ const connectDB = async () => {
   }
 };
 
-module.exports=connectDB;
+export default connectDB;

@@ -1,11 +1,11 @@
-const express = require("express");
-const axios = require("axios");
+import express from "express";
+import axios from "axios";
 const router = express.Router();
 
 const ML_SERVICE_URL = "http://localhost:5001";
 
 //get companies list
-router.get("c/ompanies", async (req, req) => {
+router.get("/companies", async (req, res) => {
   try {
     const response = await axios.get(`${ML_SERVICE_URL}/companies`);
     res.json(response.data);
@@ -46,4 +46,4 @@ router.post("/analyze", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
