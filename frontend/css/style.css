@@ -3,6 +3,7 @@
   padding: 0%;
   box-sizing: border-box;
 }
+
 .poppins-thin {
   font-family: "Poppins", sans-serif;
   font-weight: 100;
@@ -111,75 +112,132 @@
   font-style: italic;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   display: block;
+  background-color: #D6C8DF;
+  
 }
 
-.header{
-    height: 100%;
-    width: 100%;
-    position: relative;
-
+.header {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  color: #332927
 }
 
-nav{
-    display: flex;
-    padding: 0.5% 1%;
-    align-items: center;
-    justify-content: space-between;
+nav {
+  display: flex;
+  padding: 0.5% 1%;
+  align-items: center;
+  justify-content: space-between;
 
 }
 
 
 /* logo- jobgAlign */
-nav img{   
-    width: 100px;
+nav img {
+  width: 100px;
 }
 
-.nav-links ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position: relative;
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
 }
 
-.nav-links ul li a{
-    color: green; /* subject to change */
-    text-decoration: none;
-    font-size: 23px;
+.nav-links ul li a {
+  color: #332927;
+  /* subject to change */
+  text-decoration: none;
+  font-size: 23px;
 
 }
 
-.nav-links ul li::after{
-    content: '';
-    width: 0%;
-    height: 2px;
-    background: #f44336;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
+.nav-links ul li::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
 }
 
-.nav-links ul li:hover::after{
+.nav-links ul li:hover::after {
   width: 100%;
 }
 
-#homePage{
-    display: flex;
-    padding: 30px;
-    /* justify-content: space-between; */
+#homePage {
+  display: flex;
+  align-items: flex-start;
+  /* padding: 30px; */
+  /* justify-content: space-between; */
 }
 
-#home-page-description{
-    border: 20px;
-    border: 2px solid black;
-    text-align: center;
-    font-size: 32px; 
+#home-page-description {
+  border: 20px;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 32px;
+  padding-bottom: 56px;
+  margin: 0px 60px 60px 150px;
+  /* up right down left */
+}
+/* #description-heading{
+  padding-bottom: 40px;
+} */
+
+#motivation {
+  border: 2px solid black;
+  width: 50%;
+  margin: 0px 230px 60px 150px;
+
 }
 
-#motivation{
-    border: 2px solid black;
-    width: 50%;
+#motivation img {
+  width: 500px;
+}
+
+#call-to-action{
+  align-items: center;
+  border: 2px solid black;
+  margin: 0px 230px 60px 150px;
+  padding: 10px 400px;
+  justify-content: center;
+  font-size: 35px;
+  font-weight: 500; 
+}
+#page2{
+  display: flex;
+  padding-left: 200px;
+  justify-content: center;
+}
+.form-group{
+  
+  transform: translate(-50%);
+  width: 430px;
+  background: transparent;
+  border: 2px solid rgba(225, 225, 225, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+  color: white;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+#form-company{
+  margin-bottom: 30px;
+}
+
+.button{
+  border: 2px solid black;
+}
+
+.graph-section{
+  border: 2px solid black;
+
 }

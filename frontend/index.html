@@ -1,38 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JobAlign</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <section class="header">
-        <nav>
-            <a href="index.html"><img src="./assets/Jobalign.png" alt="Logo" id="logo"></a>
-            <div id="navLinks" class="nav-links">
-            <ul>
-                <li>   <a href="index.html">HOME</a>   </li>
-                <li>   <a href="">BLANK</a>            </li> 
-                <li>   <a href="">ADVANTAGES</a>       </li> 
-                
-            </ul>
-            </div>
-        </nav>
-        <div id="homePage">
+      <nav>
+        <a href="index.html"
+          ><img src="./assets/Jobalign.png" alt="Logo" id="logo"
+        /></a>
+        <div id="navLinks" class="nav-links">
+          <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="">BLANK</a></li>
+            <li><a href="">ADVANTAGES</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div id="homePage">
         <div id="home-page-description">
-            <h3>Description</h3>
-            <p>JobAlign helps you bridge the gap between where you are and where you want to be. By understanding your dream company and target role, we break down the exact skills, tools, and experience required to get there. Instead of vague advice or generic preparation paths, JobAlign gives you clarity—showing what actually matters and what you should focus on next.
-
-Our goal is simple: eliminate confusion in career preparation. Whether you’re a student, fresher, or early professional, JobAlign provides a structured roadmap that aligns your learning and resume with real industry expectations.</p>
+          <h3 id="Description-heading">Description</h3>
+          <p>
+            JobAlign helps you bridge the gap between where you are and where
+            you want to be. By understanding your dream company and target role,
+            we break down the exact skills, tools, and experience required to
+            get there. Instead of vague advice or generic preparation paths,
+            JobAlign gives you clarity—showing what actually matters and what
+            you should focus on next. Our goal is simple: eliminate confusion in
+            career preparation. Whether you’re a student, fresher, or early
+            professional, JobAlign provides a structured roadmap that aligns
+            your learning and resume with real industry expectations.
+          </p>
         </div>
-        <div id="motivation"><img src="./assets/alignYourGoals.jpeg" alt="Motivation"></div>
-
+        <div id="motivation">
+          <img src="./assets/alignYourGoals.jpeg" alt="Motivation" />
         </div>
-
-
+      </div>
+      <div id="call-to-action">
+        Take the First Step Toward Your Dream Company.
+      </div>
     </section>
-    
-</body>
+    <div id="page2">
+    <section>
+      <div class="form-group" id="form-company">
+        <label for="company">Select Company:</label>
+        <select id="company">
+          <!-- Initial placeholder option -->
+          <option value="">Loading companies...</option>
+          <!-- JavaScript will populate more options here -->
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="designation">Select Designation:</label>
+        <select id="designation">
+          <!-- Initial placeholder option -->
+          <option value="">Loading designations...</option>
+          <!-- JavaScript will populate more options here -->
+        </select>
+      </div>
+    </section>
+
+    <section class="graph-section">
+      <h2>Skills Confidence Graph</h2>
+      <div class="chart-container">
+        <canvas id="SkillsChart"></canvas>
+      </div>
+
+      <div id="emptyState" class="empty-state">
+        <p>📊</p>
+        <p>Select Company and Designation to See Skill Reccomendations</p>
+      </div>
+      <div id="chartInfo" class="chart-info" style="display: none">
+        <p><strong>Company:</strong> <span id="displayCompany">-</span></p>
+        <p>
+          <strong>Designation:</strong> <span id="displayDesignation">-</span>
+        </p>
+        <p><strong>Skills Analyzed:</strong> <span id="skillCount">0</span></p>
+      </div>
+    </section>
+    </div>
+  </body>
 </html>
