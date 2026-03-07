@@ -268,7 +268,7 @@ Utils.segmentAngleRad = (Xs, Ys, Xt, Yt, real) => {
 
 };
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://jobalign-backend-ak4j.onrender.com/api";
 
 async function loadCompanies() {
   try {
