@@ -3,152 +3,251 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JobAlign</title>
-    <link rel="stylesheet" href="./css/style.css" />
+    <title>JobAlign — Your Career Compass</title>
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
-    <section class="header">
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="site-wrapper">
       <nav>
-        <a href="index.html"
-          ><img src="./assets/Jobalign.png" alt="Logo" id="logo"
-        /></a>
-        <div id="navLinks" class="nav-links">
-          <ul>
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="">BLANK</a></li>
-            <li><a href="">ADVANTAGES</a></li>
-          </ul>
-        </div>
+        <a href="#hero" class="nav-logo">Job<span>Align</span></a>
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#analyzer">Analyze</a></li>
+          <li><a href="#features">Features</a></li>
+        </ul>
       </nav>
-      <div id="homePage">
-        <div id="home-page-description">
-          <h3 id="Description-heading">Description</h3>
-          <p>
-            JobAlign helps you bridge the gap between where you are and where
-            you want to be. By understanding your dream company and target role,
-            we break down the exact skills, tools, and experience required to
-            get there. Instead of vague advice or generic preparation paths,
-            JobAlign gives you clarity—showing what actually matters and what
-            you should focus on next. Our goal is simple: eliminate confusion in
-            career preparation. Whether you’re a student, fresher, or early
-            professional, JobAlign provides a structured roadmap that aligns
-            your learning and resume with real industry expectations.
-          </p>
-        </div>
-        <div id="motivation">
-          <img src="./assets/alignYourGoals.jpeg" alt="Motivation" />
-        </div>
-      </div>
-      <div id="call-to-action">
-        Take the First Step Toward Your Dream Company.
-      </div>
-    </section>
-    <div id="page2">
-      <section>
-        <div class="form-group" id="form-company">
-          <label for="company">Select Company:</label>
-          <select id="company">
-            <!-- Initial placeholder option -->
-            <option value="">Loading companies...</option>
-            <!-- JavaScript will populate more options here -->
-          </select>
+
+      <section id="hero">
+        <p class="hero-eyebrow">Career Intelligence Platform</p>
+
+        <h1 class="hero-title">
+          Align Your Path.<br /><em>Land Your Role.</em>
+        </h1>
+
+        <p class="hero-sub">
+          JobAlign decodes exactly what top companies want — mapping your skills
+          against real hiring patterns to give you a precise, personalized
+          roadmap.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#analyzer" class="btn-primary">Analyze My Skills</a>
+          <a href="#about" class="btn-ghost">Learn More</a>
         </div>
 
-        <div class="form-group">
-          <label for="designation">Select Designation:</label>
-          <select id="designation">
-            <!-- Initial placeholder option -->
-            <option value="">Loading designations...</option>
-            <!-- JavaScript will populate more options here -->
-          </select>
+        <div class="hero-scroll">
+          <div class="scroll-line"></div>
+          <span>Scroll</span>
         </div>
       </section>
 
-      <section class="graph-section">
-        <h2>Skills Confidence Graph</h2>
-        <div class="chart-container">
-          <canvas id="SkillsChart"></canvas>
+      <section id="about">
+        <div class="about-text">
+          <p class="section-label">What We Do</p>
+          <h2 class="section-title">From Aspiration<br />to <em>Action</em></h2>
+
+          <p>
+            Most career advice is vague. JobAlign is precise. We analyze the
+            actual skill signatures of professionals already in your target role
+            at your dream company — then map the exact gap between where you are
+            and where you need to be.
+          </p>
+
+          <p style="margin-top: 16px">
+            No generic roadmaps. No guesswork. Just data-driven clarity built
+            from thousands of real career profiles.
+          </p>
         </div>
 
-        <div id="emptyState" class="empty-state">
-          <p>📊</p>
-          <p>Select Company and Designation to See Skill Reccomendations</p>
-        </div>
-        <div id="chartInfo" class="chart-info" style="display: none">
-          <p><strong>Company:</strong> <span id="displayCompany">-</span></p>
-          <p>
-            <strong>Designation:</strong> <span id="displayDesignation">-</span>
-          </p>
-          <p>
-            <strong>Skills Analyzed:</strong> <span id="skillCount">0</span>
-          </p>
-        </div>
-      </section>
-
-    </div>
-    
-      <div id="page3">
-        <section>
-          <h1>Why use JobAlign?</h1>
-          <p>
-            “Our platform helps you tailor your resume by analyzing your dream
-            company and desired role, giving you a clear roadmap of skills,
-            format, and highlights. With AI-driven insights, we ensure your
-            resume matches exactly what recruiters are looking for.”
-          </p>
-          <div class="cards">
-            <div class="card1">
-              <h2>Company & Designation Selection</h2>
-              <p>
-                Our platform allows users to choose their desired company and
-                target designation. This ensures that the career roadmap
-                generated is highly personalized and directly relevant to the
-                user’s career goals, rather than being generic.
-              </p>
-            </div>
-            <div class="card2">
-              <h2>Resume-Based Skill Extraction</h2>
-              <p>
-                Using machine learning and natural language processing, the
-                system analyzes resumes of professionals who have already
-                secured the desired role. It extracts critical skills, tools,
-                and achievements, ensuring insights are based on real-world
-                data.
-              </p>
-            </div>
-            <div class="card3">
-              <h2>Personalized Skill Roadmap</h2>
-              <p>
-                Once the relevant skills and achievements are extracted, the
-                platform generates a customized roadmap. This roadmap helps
-                users understand exactly what to learn, in what order, and why
-                it is important for achieving their target designation.
-              </p>
-            </div>
-            <div class="card4">
-              <h2>Company-Specific Insights</h2>
-              <p>
-                Unlike generic platforms, our system provides company-specific
-                analysis. The skills and technologies identified are tailored to
-                the practices of each company, ensuring that preparation aligns
-                with their expectations.
-              </p>
-            </div>
-            <div class="card5">
-              <h2>Designation-Specific Guidance</h2>
-              <p>
-                Every role demands a unique set of competencies. Our solution
-                focuses on designation-specific requirements, highlighting not
-                only technical skills but also relevant achievements and soft
-                skills necessary for success.
-              </p>
+        <div class="about-visual">
+          <div class="about-stat">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">
+              companies mapped across every major industry
             </div>
           </div>
-        </section>
-      </div>
+
+          <div class="about-divider"></div>
+
+          <div class="about-stat">
+            <div class="stat-num">120+</div>
+            <div class="stat-label">
+              roles analyzed with designation-level precision
+            </div>
+          </div>
+
+          <div class="about-divider"></div>
+
+          <div class="about-stat">
+            <div class="stat-num">98%</div>
+            <div class="stat-label">
+              skill match accuracy versus live job postings
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="analyzer">
+        <div class="inner">
+          <div class="section-head">
+            <p class="section-label">Skill Analysis Engine</p>
+            <h2 class="section-title">Discover Your <em>Gap</em></h2>
+          </div>
+
+          <div class="analyzer-grid">
+            <div class="analyzer-form">
+              <div class="form-field">
+                <label for="company">Target Company</label>
+                <select id="company">
+                  <option value="">Loading companies…</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="designation">Desired Role</label>
+                <select id="designation">
+                  <option value="">Loading roles…</option>
+                </select>
+              </div>
+
+              <button class="analyze-btn" onclick="analyzeSkills()">
+                Run Analysis
+              </button>
+
+              <div id="error"></div>
+              <div id="loading">Analyzing</div>
+            </div>
+
+            <div class="results-panel">
+              <div id="emptyState">
+                <div class="empty-icon">◎</div>
+                <p>
+                  Select a company and role to reveal the skills that will get
+                  you hired.
+                </p>
+              </div>
+
+              <div id="results">
+                <div class="results-header">
+                  <div class="results-meta">
+                    <span
+                      ><strong id="displayCompany">—</strong> ·
+                      <span id="displayDesignation">—</span></span
+                    >
+                  </div>
+
+                  <span
+                    style="
+                      font-family: var(--ff-mono);
+                      font-size: 11px;
+                      color: var(--muted);
+                    "
+                  >
+                    <span id="skillCount">0</span> skills identified
+                  </span>
+                </div>
+
+                <div id="skillsContainer"></div>
+
+                <div class="chart-container">
+                  <canvas id="SkillsChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="section-head">
+          <p class="section-label">Platform Capabilities</p>
+          <h2 class="section-title">Built for <em>Precision</em></h2>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-num">01</div>
+            <div class="feature-title">Company & Role Targeting</div>
+            <p class="feature-desc">
+              Choose your destination precisely. Our analysis is calibrated not
+              just by industry, but by the individual company's actual hiring
+              fingerprint and the specific seniority level you're aiming for.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">02</div>
+            <div class="feature-title">Resume-Driven Skill Extraction</div>
+            <p class="feature-desc">
+              We don't rely on job descriptions alone. Our ML pipeline analyzes
+              resumes of professionals already holding your target role —
+              extracting what they actually built, not what HR wrote.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">03</div>
+            <div class="feature-title">Personalized Skill Roadmap</div>
+            <p class="feature-desc">
+              Every gap analysis produces an ordered, actionable learning path.
+              Know exactly what to master first, what to brush up on, and what
+              to confidently drop from your priorities.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">04</div>
+            <div class="feature-title">Company-Specific Intelligence</div>
+            <p class="feature-desc">
+              Google engineers think differently than Amazon engineers. Our
+              system captures those nuances — surfacing the tools,
+              methodologies, and culture signals unique to each organisation.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-num">05</div>
+            <div class="feature-title">Confidence Scoring</div>
+            <p class="feature-desc">
+              Each skill comes with a confidence rating reflecting how
+              consistently it appears across verified profiles. Invest your time
+              where it provably matters most.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="cta-banner">
+        <p class="section-label">Get Started</p>
+
+        <h2 class="section-title">
+          Your Dream Role<br />is <em>Closer Than You Think</em>
+        </h2>
+
+        <p>
+          Stop preparing blindly. Let JobAlign show you the precise moves that
+          transform your profile from overlooked to offer-ready.
+        </p>
+
+        <a href="#analyzer" class="btn-primary"> Start Your Analysis </a>
+      </section>
+
+      <footer>
+        <div class="logo">Job<span>Align</span></div>
+        <p>© 2025 JobAlign. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="js/app.js"></script>
   </body>
 </html>

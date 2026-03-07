@@ -20,7 +20,7 @@ router.get("/companies", async (req, res) => {
 router.get("/designations", async (req, res) => {
   try {
     const response = await axios.get(`${ML_SERVICE_URL}/designations`);
-    res.json(response);
+    res.json(response.data);
   } catch (error) {
     res.status(500).json({ error: "Error Fetching Designations" });
   }
@@ -40,7 +40,7 @@ router.post("/analyze", async (req, res) => {
       designation,
     });
     res.json(response.data);
-    //save user request to the mongoDB
+   
   } catch (error) {
     res.status(500).json({ error: `Failed to analyse skills` });
   }
