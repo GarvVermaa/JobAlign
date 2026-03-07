@@ -2,7 +2,7 @@ import express from "express";
 import axios from "axios";
 const router = express.Router();
 
-const ML_SERVICE_URL = "http://localhost:5001";
+const ML_SERVICE_URL = process.env.ML_SERVICE_URL || "http://localhost:5001";
 
 //get companies list
 router.get("/companies", async (req, res) => {
