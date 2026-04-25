@@ -270,12 +270,34 @@ Utils.segmentAngleRad = (Xs, Ys, Xt, Yt, real) => {
 
 const API_BASE_URL = "https://jobalign-backend-ak4j.onrender.com/api";
 
+// Retry helper: waits for ML service to warm up on Render free tier
+async function fetchWithRetry(url, maxRetries = 8, delayMs = 5000) {
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      return data;
+    } catch (err) {
+      console.warn(`Attempt ${attempt}/${maxRetries} failed for ${url}: ${err.message}`);
+      if (attempt === maxRetries) throw err;
+      // Show warming-up notice after first failure
+      if (attempt === 1) {
+        const notice = document.getElementById("warmupNotice");
+        if (notice) notice.style.display = "block";
+      }
+      await new Promise(r => setTimeout(r, delayMs));
+    }
+  }
+}
+
 async function loadCompanies() {
   try {
-    const res = await fetch(`${API_BASE_URL}/analysis/companies`);
-    const data = await res.json();
+    const data = await fetchWithRetry(`${API_BASE_URL}/analysis/companies`);
 
-    const companies = data.companies || data;
+    const companies = data.companies;
+    if (!Array.isArray(companies)) throw new Error("companies is not an array");
 
     const select = document.getElementById("company");
     select.innerHTML = '<option value="">Select Company</option>';
@@ -287,17 +309,23 @@ async function loadCompanies() {
       select.appendChild(option);
     });
 
+    // Hide warm-up notice once loaded
+    const notice = document.getElementById("warmupNotice");
+    if (notice) notice.style.display = "none";
+
   } catch (err) {
     console.error("Error loading companies:", err);
+    const select = document.getElementById("company");
+    select.innerHTML = '<option value="">Failed to load – refresh page</option>';
   }
 }
 
 async function loadDesignations() {
   try {
-    const res = await fetch(`${API_BASE_URL}/analysis/designations`);
-    const data = await res.json();
+    const data = await fetchWithRetry(`${API_BASE_URL}/analysis/designations`);
 
-    const roles = data.designations || data;
+    const roles = data.designations;
+    if (!Array.isArray(roles)) throw new Error("designations is not an array");
 
     const select = document.getElementById("designation");
     select.innerHTML = '<option value="">Select Role</option>';
@@ -311,6 +339,8 @@ async function loadDesignations() {
 
   } catch (err) {
     console.error("Error loading roles:", err);
+    const select = document.getElementById("designation");
+    select.innerHTML = '<option value="">Failed to load – refresh page</option>';
   }
 }
 
